@@ -2,87 +2,80 @@ return {
 	{
 		"catppuccin/nvim",
 		name = "catppuccin",
+		lazy = false,
 		priority = 1000,
 		config = function()
 			require("catppuccin").setup({
-				flavour = "macchiato",
-				background = { light = "latte", dark = "mocha" },
+				-- Core
+				flavour = "mocha",
 				transparent_background = false,
-				float = { transparent = false, solid = false },
 				show_end_of_buffer = false,
 				term_colors = false,
-				dim_inactive = { enabled = false, shade = "dark", percentage = 0.15 },
+
+				-- Style
 				no_italic = false,
 				no_bold = false,
 				no_underline = false,
+
 				styles = {
 					comments = { "italic" },
 					conditionals = { "italic" },
-					loops = {},
-					functions = {},
-					keywords = {},
-					strings = {},
-					variables = {},
-					numbers = {},
-					booleans = {},
-					properties = {},
-					types = {},
-					operators = {},
 				},
-				color_overrides = {},
-				custom_highlights = {},
+
+				-- UI behavior
+				float = {
+					transparent = false,
+					solid = false,
+				},
+
+				dim_inactive = {
+					enabled = false,
+				},
+
+				custom_highlights = function(colors)
+					return {
+						-- Main editor
+						Normal = { bg = colors.base },
+						NormalNC = { bg = colors.base },
+
+						-- Floating windows
+						NormalFloat = { bg = colors.mantle },
+						FloatBorder = { fg = colors.surface2, bg = colors.mantle },
+						FloatTitle = { fg = colors.text, bg = colors.mantle },
+
+						-- Splits
+						WinSeparator = { fg = colors.surface1 },
+
+						-- Statusline
+						StatusLine = { bg = colors.mantle },
+						StatusLineNC = { bg = colors.mantle },
+
+						-- Cursorline (subtle, not muddy)
+						CursorLine = { bg = colors.surface0 },
+
+						-- Sidebars / trees
+						NvimTreeNormal = { bg = colors.mantle },
+						NvimTreeNormalNC = { bg = colors.mantle },
+					}
+				end,
+
+				-- Integrations
 				default_integrations = true,
 				auto_integrations = false,
 				integrations = {
 					cmp = true,
 					gitsigns = true,
-					nvimtree = true,
 					treesitter = true,
-					neotree = true,
 					telescope = true,
-					notify = false,
-					mini = { enabled = true, indentscope_color = "" },
 					fzf = true,
 					lualine = true,
 					mason = true,
+					mini = { enabled = true },
+					notify = false,
 				},
 			})
 
 			vim.cmd.colorscheme("catppuccin")
-		end,
-	},
-	{
-		"rebelot/kanagawa.nvim",
-		name = "kanagawa",
-		priority = 1000,
-		opts = {
-			compile = true,
-			theme = "dragon",
-			overrides = function(colors)
-				return {
-					Normal = { bg = colors.theme.ui.bg_dim },
-				}
-			end,
-		},
-	},
-	{
-		"folke/tokyonight.nvim",
-		lazy = false,
-		priority = 1000,
-		config = function()
-			require("tokyonight").setup({
-				style = "night", -- or "storm"
-				transparent = false,
-				styles = {
-					sidebars = "dark",
-					floats = "dark",
-				},
-				on_colors = function(colors)
-					colors.bg = "#000000"
-					colors.bg_dark = "#000000"
-				end,
-			})
-			vim.cmd.colorscheme("tokyonight")
 		end,
 	},
 }

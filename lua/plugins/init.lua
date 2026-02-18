@@ -9,4 +9,5 @@ return {
 	{ import = "plugins.linting" },
 	{ import = "plugins.formatting" },
 	{ import = "plugins.git" },
+	{ import = "plugins.markdown" },
 }

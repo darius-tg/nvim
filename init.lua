@@ -11,10 +11,9 @@ require("config.keymaps")
 require("config.autocmds")
 require("config.lazy")
 require("dev").setup()
+require("clipboard").setup()
 require("startscreen").setup({
-	title = "  󰧮  Welcome  ",
+	title = "   Welcome  ",
 	header = { "move the work forward" },
 	border = "rounded",
 })
-
-vim.cmd.colorscheme("catppuccin")
