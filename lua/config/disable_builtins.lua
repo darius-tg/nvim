@@ -20,8 +20,8 @@ for _, p in ipairs({
 	"netrwSettings",
 	"netrwFileHandlers",
 	-- legacy providers (speed): enable one by setting to 0 here and installing the tool
-	"python3_provider",
-	"node_provider",
+	-- "python3_provider",
+	-- "node_provider",
 	"ruby_provider",
 	"perl_provider",
 }) do
