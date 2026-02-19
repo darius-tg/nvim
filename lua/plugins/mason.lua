@@ -40,7 +40,6 @@ return {
 
 					-- formatters
 					"stylua",
-					"biome",
 					"prettierd",
 					"jq",
 					"gofumpt",

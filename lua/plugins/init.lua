@@ -7,6 +7,7 @@ return {
 	{ import = "plugins.completion" },
 	{ import = "plugins.lsp" },
 	{ import = "plugins.linting" },
+	{ import = "plugins.mason" },
 	{ import = "plugins.formatting" },
 	{ import = "plugins.git" },
 	{ import = "plugins.markdown" },
