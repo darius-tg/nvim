@@ -17,6 +17,24 @@ map({ "n", "x" }, "<leader>p", '"+p', "Paste from system clipboard (after)")
 map("n", "<leader>P", '"+P', "Paste from system clipboard (before)")
 map("n", "<leader>w", "<cmd>write<CR>", "Save file")
 
+-- Yank, Delete and Cut
+-- Don’t overwrite clipboard / unnamed register on delete
+-- vim.keymap.set({ "n", "x" }, "d", '"_d', { noremap = true, silent = false })
+-- vim.keymap.set("n", "dd", '"_dd', { noremap = true, silent = false })
+-- vim.keymap.set({ "n", "x" }, "D", '"_D', { noremap = true, silent = false })
+-- vim.keymap.set({ "n", "x" }, "c", '"_c', { noremap = true, silent = false })
+-- vim.keymap.set("n", "cc", '"_cc', { noremap = true, silent = false })
+-- vim.keymap.set({ "n", "x" }, "C", '"_C', { noremap = true, silent = false })
+-- vim.keymap.set("x", "p", '"_dP', { noremap = true, silent = false }) -- paste over selection without yanking it
+
+-- Yank tos system clipboard
+vim.keymap.set({ "n", "x" }, "y", '"+y', { noremap = true, silent = true })
+vim.keymap.set("n", "yy", '"+yy', { noremap = true, silent = true })
+
+-- Cut (delete into clipboard)
+-- vim.keymap.set({ "n", "x" }, "x", '"+d', { noremap = true, silent = false })
+-- vim.keymap.set("n", "xx", '"+dd', { noremap = true, silent = false })
+
 -- Window navigation
 map("n", "<C-h>", "<C-w>h", "Go to left window")
 map("n", "<C-j>", "<C-w>j", "Go to below window")
